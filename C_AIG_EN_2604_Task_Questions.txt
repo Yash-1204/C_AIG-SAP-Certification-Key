@@ -1,0 +1,443 @@
+C_AIG
+SAP Certified - SAP Generative AI 
+Developer
+.
+.
+.
+SAP CERTIFICATION TASKS
+Course Version: 2604
+SAP Copyrights, Trademarks and Disclaimers
+© 2026 SAP SE or an SAP affiliate company. All rights reserved.
+No part of this publication may be reproduced or transmitted in any form or for any purpose without the express permission of 
+SAP SE or an SAP affiliate company.
+SAP and other SAP products and services mentioned herein as well as their respective logos are trademarks or registered 
+trademarks of SAP SE (or an SAP affiliate company) in Germany and other countries. Please see 
+https://www.sap.com/
+corporate/en/legal/copyright.html for additional trademark information and notices.
+Some software products marketed by SAP SE and its distributors contain proprietary software components of other software 
+vendors.
+National product specifications may vary.
+These materials may have been machine translated and may contain grammatical errors or inaccuracies.
+These materials are provided by SAP SE or an SAP affiliate company for informational purposes only, without representation or 
+warranty of any kind, and SAP SE or its affiliated companies shall not be liable for errors or omissions with respect to the materials. 
+The only warranties for SAP SE or SAP affiliate company products and services are those that are set forth in the express warranty 
+statements accompanying such products and services, if any. Nothing herein should be construed as constituting an additional 
+warranty.
+In particular, SAP SE or its affiliated companies have no obligation to pursue any course of business outlined in this document or 
+any related presentation, or to develop or release any functionality mentioned therein. This document, or any related presentation, 
+and SAP SE’s or its affiliated companies’ strategy and possible future developments, products, and/or platform directions and 
+functionality are all subject to change and may be changed by SAP SE or its affiliated companies at any time for any reason without 
+notice. The information in this document is not a commitment, promise, or legal obligation to deliver any material, code, or 
+functionality. All forward-looking statements are subject to various risks and uncertainties that could cause actual results to differ 
+materially from expectations. Readers are cautioned not to place undue reliance on these forward-looking statements, which 
+speak only as of their dates, and they should not be relied upon in making purchasing decisions.
+Typographic Conventions
+American English is the standard used in this handbook.
+The following typographic conventions are also used.
+This information is displayed in the instructor’s presentation
+Demonstration
+Procedure
+Warning or Caution
+Hint
+Related or Additional Information
+Facilitated Discussion
+User interface control
+Window title
+Example text
+Example text
+© Copyright. All rights reserved.
+iii
+Contents
+Unit 1:
+System-based Assessment
+1
+2
+3
+6
+7
+8
+11
+Instructions
+Context
+Task 1: Designing an Initial Prompt and Structuring for Core 
+Feedback Insights (Estimated Time: 25 minutes)
+Task 2: Refining Accuracy and Adding Semantic Depth for Problem 
+Resolution (Estimated Time: 20 minutes)
+Task 3: Evaluating and Selecting the Optimal LLM for Production 
+(Estimated Time: 20 mins)
+Task 4: Creating an Advanced Multi-Issue Extraction & Prioritization 
+Template (Estimated Time: 25 minutes)
+Task 5: Submitting Your Assessment
+© Copyright. All rights reserved.
+iv
+Unit 1
+Instructions
+In this system-based assessment, you will be asked to complete several tasks in an SAP 
+system.
+Data Entry Accuracy
+Some tasks will require you to enter your group number and other data values. It is critical 
+that these values are entered exactly as specified or you risk losing points. Pay close attention 
+to:
+● Correct capitalization of letters
+● Empty spaces and all other symbols must be maintained exactly as stated.
+● When entering your group number, replace redundant hashtags with leading zeros.
+Example:
+Your group number is 2
+Input Value
+Correct
+Admin_##
+Admin_02
+Incorrect
+admin_02, Admin 02
+New Lead-####
+New Lead-0002
+New Lead-2, New Lead0002
+Please make a note of your group number when you enter the assessment system shortly.
+SAP Joule for Consultants
+During a system-based assessment, you can use open-book resources, including SAP Joule 
+for Consultants. To access it:
+● Select SAP Joule for Consultants from the systems menu, along with other system 
+options, before starting the assessment.
+● It opens in a separate browser window at no cost.
+● SAP Joule for Consultants remains available for the entire duration of your assessment.
+For all other questions, please refer to 
+FAQs.
+When you have finished reading these task instructions and are ready to begin the timed 
+assessment, please return to the browser where you downloaded this document and follow 
+the instructions there.
+Good luck!
+© Copyright. All rights reserved.
+1
+Unit 1
+Context
+Scenario
+A large online retailer struggles to manually process and analyze thousands of daily customer 
+emails about various issues like product defects, delivery delays, and return requests. This 
+manual approach is inefficient, inconsistent, and results in customer dissatisfaction.
+Your task is to design, develop, and iteratively refine an AI solution using the SAP’s generative 
+AI hub. The solution should extract essential insights for fast routing, proactive problem
+solving, and ongoing service enhancement.
+This scenario consists of four parts. The estimated duration to finish the parts in minutes is 
+added in parentheses. We recommend that you complete the parts in the following sequence.
+1. Designing an Initial Prompt and Structuring for Core Feedback Insights (25m)
+2. Refining Accuracy and Adding Semantic Depth for Problem Resolution (20m)
+3. Evaluating and Selecting the Optimal LLM for Production (20m)
+4. Creating an Advanced Multi-Issue Extraction & Prioritization Template (25m)
+Deliverables
+Your submission will consist of specific, versioned prompt templates, configured 
+orchestration workflows, and traceable outputs demonstrating your problem-solving process 
+and implementation. You will also be required to save specific AI responses directly into the 
+Assistant role of your prompt template for tracking your solution’s evolution. Save all your 
+templates in the orchestration scenario.
+Sample message for testing your prompts
+Sample messages are provided at the end of this document. You can use these messages to 
+develop your prompts as suggested in the tasks below.
+© Copyright. All rights reserved.
+2
+Unit 1
+Task 1
+Designing an Initial Prompt and Structuring for 
+Core Feedback Insights (Estimated Time: 25 
+minutes)
+Objective
+Develop a foundational prompt template that accurately extracts essential customer 
+feedback details into a structured JSON format, ready for immediate departmental routing.
+Task 1.1: Design and Implement the Base Prompt (Prompt Template Version 1.0.0)
+The customer service, product, and logistics teams need a quick, standardized way to 
+understand the core of a customer’s message. Create a new prompt template named 
+feedback-analyzer-CERT####, version 1.0.0 in SAP’s generative AI hub to identify the main 
+issue, sentiment, and any referenced product or order details.
+1. Define appropriate System and User roles.
+2. The System role must clearly state the LLM’s primary task (customer feedback analysis) 
+and the desired output schema.
+3. The User role should contain instructions for processing the input message.
+4. Add a variable user_email_placeholder where you will provide the input message.
+5. The output MUST be a JSON object containing the following keys:
+a. Feedback_ID: string (e.g., AUTO-FEED-001)
+b. Main_Category: enum (e.g., Product Issue, Delivery Problem, Return/Refund, General 
+Inquiry, Website/App Issue, Account Issue)
+c. Customer_Sentiment: enum (Very Negative, Negative, Neutral, Positive, Very Positive)
+d. Issue_Summary: string (concise summary, max 100 words)
+e. Order_Reference_ID: string (e.g., #GGX12345, N/A if not present)
+f. Product_Reference: string (e.g., “Smartwatch Model X”, N/A if not present)
+g. Suggested_Department: enum (Customer Service, Product Team, Logistics, Returns 
+Processing, Technical Support
+6. Make sure the JSON response contains JSON output only with no additional text or 
+formatting.
+7. To develop an effective prompt template:
+a. You can use the prompt editor and sample messages (located at the end of the 
+document) to create and refine multiple versions of the prompts. You can save these 
+prompts for future reference.
+© Copyright. All rights reserved.
+3
+Unit 1: System-based Assessment
+b. Finally, select the most suitable version for use as the template, feedback-analyzer
+CERT#### version 1.0.0.
+Note:
+You can use the sample messages provided in the Sample Messages section after 
+the practice test description
+Note:
+Click on the top right corner in SAP AI Launchpad to find your unique user id in the 
+form of “CERT####”.
+Example: If your group number is “0123 SAP Learning “ your user id will be 
+“CERT0123”.
+Your template name must include the exact words with your user ID. For example: 
+feedback-analyzer-CERT0123, version 1.0.0, and the variable name 
+user_email_placeholder for this task. Similarly, ensure correct versions for each of 
+the following tasks like 1.1.0, 1.2.0, 2.0.0 etc. as mentioned in the task. Following 
+these instructions correctly is critical for you to pass the certification.
+Ensure that you save the prompt template with proper name and version number.
+Expected outcome: A new prompt template with the name feedback-analyzer-CERT####, 
+version 1.0.0 with appropriate prompts in the system and user roles and a variable based on 
+the above instructions.
+Task 1.2: Implement Enterprise-Grade Prompt Hardening (Prompt Template Version 
+1.1.0)
+Update your feedback-analyzer-CERT#### template to version 1.1.0 to implement prompt 
+hardening by adding an “IMPORTANT” section within the System role.
+This section must contain explicit negative instructions that strictly control LLM’s behavior by 
+forbidding actions that would:
+● Compromise its dedicated focus on customer feedback analysis.
+● Lead to the unnecessary disclosure of any customer’s personal data, beyond the 
+Order_Reference_ID or Product_Reference fields explicitly required in the JSON output.
+● Result in a response that is not clean, parseable JSON, or unsuitable for automated 
+systems.
+Expected outcome: The updated prompt template with similar name feedback-analyzer
+CERT####, and a new version 1.1.0 with an additional section for prompt hardening based on 
+the above instructions.
+Task 1.3: Capture the Baseline Output for Evolution (Prompt Template Version 1.2.0)
+Run your feedback-analyzer-CERT#### template (version 1.1.0) in the Prompt Editor using 
+the following sample customer email in the user_email_placeholder variable.
+© Copyright. All rights reserved.
+4
+Task 1: Designing an Initial Prompt and Structuring for Core Feedback Insights (Estimated Time: 25 minutes)
+Hint:
+You can use any model of your choice while executing your template in this task 
+and all other remaining tasks. In case a particular model is not working, select 
+another model and continue.
+Once the JSON response is generated, copy the JSON output and paste it into the Assistant 
+role of your template and save it to version 1.2.0. This will serve as a baseline to track how 
+your solution improves.
+Note:
+When copying the response for this and all subsequent tasks, you can either select 
+the text manually or use the copy button in the interface. Both methods provide 
+the JSON format required for the next steps.
+Subject: My recent order #GGX56789 - missing item
+Hi,
+I received my order #GGX56789 today, but the 'Wireless Headphones' 
+listed on the invoice were not in the box. I am very frustrated as I 
+needed them for a trip this weekend. Please send the missing item or 
+issue a refund immediately. This is unacceptable.
+Note:
+In case you are unable to execute the prompt due to a greyed out Run button, click 
+all the input fields (system, user, and variable fields) and check again. You can also 
+try using another model to execute the prompt.
+Expected outcome: The updated prompt template with a similar name feedback-analyzer
+CERT####, and a new version 1.2.0 with an additional Assistant role, based on the above 
+instructions.
+© Copyright. All rights reserved.
+5
+Unit 1
+Task 2
+Refining Accuracy and Adding Semantic Depth 
+for Problem Resolution (Estimated Time: 20 
+minutes)
+Objective
+Improve the LLM’s ability to accurately categorize complex feedback and extract specific, 
+actionable details crucial for resolution, not just categorization.
+Task 2.1: Address Ambiguous Categorization (Prompt Template Version 2.0.0)
+While knowing the Main_Category is good, service agents still have to read the full summary 
+to understand what the customer wants (e.g., a replacement, a call, a technical fix). You need 
+to extract specific resolution requests or critical details directly.
+Update your feedback-analyzer-CERT#### template to version 2.0.0. Modify the output 
+schema to include a new field: Actionable_Resolution_Points (an array of strings) to extract 
+1-3 distinct, concise points detailing what the customer explicitly requests or what specific 
+technical detail needs addressing for resolution.
+Expected Outcome: The updated prompt template with a similar name feedback-analyzer
+CERT####, and a new version 2.0.0 with the additional new Actionable_Resolution_Points 
+field based on the above instructions.
+Task 2.2: Extract Actionable Resolution Details (Prompt Template Version 2.1.0)
+Instructions: Run your feedback-analyzer-CERT#### template (version 2.0.0) in the Prompt 
+Editor using the following sample feedback. Once the JSON response is generated, copy and 
+save this specific JSON output into the Assistant role of this template version. Save it to a new 
+template version 2.1.0. This validates your refinement.
+Caution:
+Recall that to use the prompt template in Prompt Editor and generate fresh 
+responses, you need to delete the all the previous Assistant roles.
+Subject: Glitch on checkout page, Order #GGX98765 stuck
+Hi Support,
+I was trying to complete my purchase for Order #GGX98765 (items: 
+"Portable Speaker" and "Travel Adapter"), but the website's checkout 
+page crashed after I entered my payment details. Now the order is 
+stuck, and I can't try again. I need someone to clear the pending 
+order and allow me to repurchase, or help me complete it.
+Expected outcome: The updated prompt template with a similar name feedback-analyzer
+CERT####, and a new version 2.1.0 with an additional Assistant role, based on the above 
+instructions.
+© Copyright. All rights reserved.
+6
+Unit 1
+Task 3
+Evaluating and Selecting the Optimal LLM for 
+Production (Estimated Time: 20 mins)
+Objective: Systematically evaluate different LLMs using your fully refined prompt template. 
+Based on this evaluation, you can configure your solution to use the optimal model for 
+production deployment.
+Task 3.1: Perform Comparative Model Evaluation and Selection
+Using your template (feedback-analyzer-CERT#### version 2.0.0), run the following sample 
+customer feedback messages three times each time using a different LLM model available in 
+the generative AI hub (e.g., GPT-4o Mistral AI, Gemini)
+Note:
+In case a particular model is not working or is not available, select another model 
+and continue. Your result will not be impacted by unavailability of a particular 
+model.
+Feedback Message (Delivery Problem - Neutral/Negative):
+Subject: Delivery confusion for order #GGX33445
+My order #GGX33445 (a "Premium Coffee Maker") was marked as delivered 
+two days ago, but I haven't received it. My neighbor also didn't get 
+it. The tracking link just says "delivered." Can you please 
+investigate with the shipping company and give me an update?
+1. After executing your prompt with each model, carefully review the generated JSON output 
+for accuracy, completeness, and adherence to the specified format to ensure the most 
+accurate customer feedback analysis. Pay close attention to Main_Category, 
+Customer_Sentiment, Suggested_Department, and Actionable_Resolution_Points.
+2. To do this, run your template with each model for the given Feedback Message and review 
+the JSON output. Repeat the same for the next model.
+3. After comparing the results decide which LLM performs best with your current setup.
+4. Copy the JSON output for your selected model using Feedback Message and save it to the 
+Assistant role of your feedback-analyzer-CERT#### template to new version 2.2.0. Add 
+the “Optimal Model Output" text on the top of the saved response . This text is important 
+to track your results.
+Expected outcome:
+The updated prompt template with a similar name feedback-analyzer-CERT####, and a new 
+version 2.2.0 with an additional Assistant role based on the above instructions.
+© Copyright. All rights reserved.
+7
+Unit 1
+Task 4
+Creating an Advanced Multi-Issue Extraction & 
+Prioritization Template (Estimated Time: 25 
+minutes)
+Objective
+Enhance the solution to handle multiple distinct issues within a single customer feedback 
+message, requiring a more complex JSON structure. Introduce a “Priority” field for each 
+identified issue.
+Task 4.1: Implement Multi-Issue Support & Prioritization (Prompt Template Version 
+3.0.0)
+Customers often voice several distinct complaints or questions within a single 
+communication , for example a product defect, a shipping delay, and a billing question all in 
+one email. The current schema is designed for a single Main_Category per feedback. You 
+need to identify all distinct issues and also assign a priority to each to help agents triage 
+effectively.
+Update your feedback-analyzer-CERT####, template version 2.0.0 to a new version, 3.0.0.
+● Modify the output JSON schema significantly. The JSON will now comprise two levels, a 
+header level and a line item level. The header level will consist of the fields Feedback_ID 
+and Overall_Customer_Sentiment (representing the general tone of the entire message).
+● The line item level should now be structured as an array where each element in the array is 
+a separate JSON object representing a distinct customer issue. Each Issue element MUST 
+contain:--------
+Issue_ID: string (e.g., “ISSUE-A”, “ISSUE-B”) - a unique identifier for each distinct issue 
+found within the current feedback.
+Main_Category: enum (same as before: Product Issue, Delivery Problem, Return/
+Refund, General Inquiry, Website/App Issue, Account Issue)
+Customer_Sentiment_for_Issue: enum (Very Negative, Negative, Neutral, Positive, Very 
+Positive) - specific to this particular issue.
+Issue_Summary: string (concise summary for this specific issue, max 75 words)
+Order_Reference_ID: string (e.g., #GGX12345, N/A if not present, specific to this issue)
+Product_Reference: string (e.g., “Smartwatch Model X”, N/A if not present, specific to 
+this issue)
+Actionable_Resolution_Points: array of strings (1-3 distinct, concise points detailing 
+what is needed for this issue’s resolution).
+Priority: enum (High, Medium, Low) - Based on the urgency, impact on the customer, 
+and severity of this specific issue.
+© Copyright. All rights reserved.
+8
+Expected outcome:
+The updated prompt template with a similar name feedback-analyzer-CERT####, and a new 
+version 3.0.0 with updated prompts for the new JSON format in the System and User role.
+Task 4.2: Capture Complex Multi-Issue Output for Validation (Prompt Template Version 
+3.1.0)
+Run your feedback-analyzer-CERT#### template (version 3.0.0) in the Prompt Editor using 
+the following complex sample feedback. Once the JSON response is generated, copy and save 
+this specific JSON output into the Assistant role of this template version 3.1.0. This validates 
+your ability to handle multi-issue extraction.
+Subject: Problems with my recent order and account!
+Hello,
+I'm writing because I have two serious issues. First, the "Smart 
+Coffee Maker" (Order #GGX88990) I bought is defective; it keeps 
+leaking. I want a replacement or a full refund. Second, my online 
+account has been showing incorrect order history for months, and I 
+can't update my shipping address. This is very frustrating, and I've 
+tried calling customer service but couldn't get through. Please fix my 
+account and send instructions for the coffee maker return.
+Expected outcome:
+The updated prompt template with a similar name feedback-analyzer-CERT####, and a new 
+version 3.1.0 with an additional Assistant role, based on the above instructions.
+Sample Messages
+Sample Message 1: Product Issue (Defective Product)
+Subject: Faulty "Smart Blender" - Order #BLEND1234
+Hi Support,
+I received my 'Smart Blender Pro X' (order #BLEND1234) two days ago, 
+and it's already not working correctly. The motor sounds very weak, 
+and it keeps stopping mid-blend. It's clearly defective. I would like 
+a replacement unit sent out immediately, or a full refund if a 
+replacement isn't possible. This is very frustrating as I need it 
+daily for my morning shakes.
+Sample Message 2: Delivery Problem (Lost Package)
+Subject: Where is my order #PKG5678? Tracking shows delivered but I 
+have nothing!
+To whom it may concern,
+My order #PKG5678 for the "Premium Coffee Subscription" was marked as 
+delivered yesterday, but I haven't received anything. I've checked 
+with my neighbors and the building management, and no one has seen it. 
+This is a recurring issue with your delivery service! Please 
+investigate with the shipping company and locate my package, or send a 
+new one. I'm very upset about this.
+Sample Message 3: Website/App Issue (Payment Error)
+Subject: Cannot complete purchase - Payment Error on website
+Hello,
+I'm trying to buy the 'Ergonomic Office Chair' and some accessories, 
+but every time I try to complete my payment on your website, it shows 
+a generic 'payment error' message. My card is definitely working on 
+other sites. I've tried multiple times, and now my cart contents might 
+Task 4: Creating an Advanced Multi-Issue Extraction & Prioritization Template (Estimated Time: 25 minutes)
+© Copyright. All rights reserved. 9
+Unit 1: System-based Assessment
+expire! Can you please check what's wrong with your payment gateway? I 
+need to complete this order.
+Sample Message 4: General Inquiry (Pre-Sales Question)
+Subject: Question about "Eco-Friendly Tablet Case" compatibility
+Dear Team,
+I'm looking at your 'Eco-Friendly Tablet Case' on your website. I have 
+an older tablet model, the "TabPro 7" (from 2021). Will this case be 
+compatible with it, or is it only for newer models? I want to make 
+sure before I make a purchase. Thanks for your help!
+Sample Message 5: Multi-Issue (Defective Product & Account Billing)
+Subject: Two problems: broken headset & duplicate charge for 
+membership!
+I have two urgent issues to report! First, the 'Gaming Headset' (order 
+#GAME9012) I bought last week has a broken microphone – it's not 
+picking up my voice at all. This is a critical defect for a gaming 
+product. Second, I noticed a duplicate charge for my 'SimpleBest 
+Premium Membership' on my last statement. I was charged twice this 
+month! Please fix the headset and refund the duplicate membership 
+charge immediately. This is quite disappointing.
+Sample Message 6: Return/Refund Request (Wrong Item Received)
+Subject: Incorrect item sent - Order #CLOTH3456
+Hi,
+I placed order #CLOTH3456 for a "Blue Summer Dress, size Medium." 
+However, what I received today was a "Red Winter Jacket, size Large." 
+This is completely the wrong item and not what I ordered! I need to 
+return this jacket and either get the correct dress sent to me or 
+receive a full refund. Please provide instructions on how to proceed.
+© Copyright. All rights reserved.
+10
+Unit 1
+Task 5
+Submitting Your Assessment
+● Select the Confirm completion button to submit your assessment. This button is in the 
+browser tab where you initially accessed the assessment.
+● Please wait for the validation process to complete, this can take up to 15 minutes.
+● Results will be displayed on 
+© Copyright. All rights reserved.
+learning.sap.com under My Certifications.
+11
